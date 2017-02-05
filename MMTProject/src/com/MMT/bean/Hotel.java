@@ -17,6 +17,10 @@ public class Hotel {
 		this.hotelInfo = hotelInfo;
 		this.hotelRoom = hotelRoom;
 	}
+	public Hotel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getHotelId() {
 		return hotelId;
 	}

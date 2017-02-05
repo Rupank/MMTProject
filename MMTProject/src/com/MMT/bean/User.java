@@ -7,6 +7,7 @@ public class User {
 	private String userEmailId;
 	private String userAddress;
 	private String userPassword;
+	private String userWalletId;
 	public User(int userId, String userName, int userPhoneNo, String userEmailId, String userAddress,
 			String userpassword, String userWalletId) {
 		super();
@@ -16,9 +17,16 @@ public class User {
 		this.userEmailId = userEmailId;
 		this.userAddress = userAddress;
 		this.userPassword = userpassword;
+		this.userWalletId=userWalletId;
 	}
 	public int getUserId() {
 		return userId;
+	}
+	public String getUserWalletId() {
+		return userWalletId;
+	}
+	public void setUserWalletId(String userWalletId) {
+		this.userWalletId = userWalletId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
