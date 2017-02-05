@@ -9,7 +9,7 @@ public class AdminDataMMT {
 	public void input(){
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Admin id : ");
-		admin.setAdminId(sc.nextInt());
+		admin.setAdminId(sc.next());
 		System.out.println("Enter Admin name : ");
 		admin.setAdminName(sc.next());
 		System.out.println("Enter Admin Phone no : ");

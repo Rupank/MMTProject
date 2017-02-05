@@ -1,13 +1,13 @@
 package com.MMT.bean;
 
 public class Admin {
-	private int adminId;
+	private String adminId;
 	private String adminName;
 	private int adminPhoneNo;
 	private String adminEmailId;
 	private String adminAddress;
 	private String adminPassword;
-	public Admin(int adminId, String adminName, int adminPhoneNo, String adminEmailId, String adminAddress,
+	public Admin(String adminId, String adminName, int adminPhoneNo, String adminEmailId, String adminAddress,
 			String adminPassword) {
 		super();
 		this.adminId = adminId;
@@ -21,10 +21,10 @@ public class Admin {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 	public String getAdminName() {

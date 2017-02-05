@@ -6,9 +6,14 @@ public class HotelBooking {
 	private long hotelBookingId;
 	private int hotelId;
 	private String userId;
+	public HotelBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private int roomNo;
 	private Date hotelCheckInDate;
 	private Date hotelCheckOutDate;
+	private int stayDuration;
 	public HotelBooking(long hotelBookingId, int hotelId, String userId, int roomNo, Date hotelCheckInDate,
 			Date hotelCheckOutDate) {
 		super();

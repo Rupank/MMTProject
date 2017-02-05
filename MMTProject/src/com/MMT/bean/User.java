@@ -1,14 +1,18 @@
 package com.MMT.bean;
 
 public class User {
-	private int userId;
+	private String userId;
 	private String userName;
 	private int userPhoneNo;
 	private String userEmailId;
 	private String userAddress;
 	private String userPassword;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String userWalletId;
-	public User(int userId, String userName, int userPhoneNo, String userEmailId, String userAddress,
+	public User(String userId, String userName, int userPhoneNo, String userEmailId, String userAddress,
 			String userpassword, String userWalletId) {
 		super();
 		this.userId = userId;
@@ -19,7 +23,7 @@ public class User {
 		this.userPassword = userpassword;
 		this.userWalletId=userWalletId;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	public String getUserWalletId() {
@@ -28,7 +32,7 @@ public class User {
 	public void setUserWalletId(String userWalletId) {
 		this.userWalletId = userWalletId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
