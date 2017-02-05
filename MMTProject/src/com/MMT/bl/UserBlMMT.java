@@ -35,8 +35,11 @@ public class UserBlMMT {
 		
 		if(udi.search(user.getUserId())==null){
 			
-			udi.addUser(user);
+			boolean tf=udi.addUser(user);
+			if(tf==true)
 			return true;
+			else
+				return false;
 		}
 		else
 		{
