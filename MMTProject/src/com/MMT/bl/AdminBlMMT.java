@@ -7,7 +7,7 @@ import com.MMT.bean.Admin;
 import com.MMT.dao.AdminDaoMMT;
 
 import com.MMT.dao.HotelDaoImplMMT;
-
+import com.MMT.helper.AdminDataMMT;
 import com.MMT.bean.Hotel;
 
 import com.MMT.dao.AdminDaoImplMMT;
@@ -15,15 +15,15 @@ import com.MMT.dao.AdminDaoImplMMT;
 public class AdminBlMMT {
 	private AdminDaoMMT ad=new AdminDaoImplMMT();
 	private HotelDaoImplMMT hd=new HotelDaoImplMMT();
+	private AdminDataMMT aData=new AdminDataMMT();
 	public Admin alogin(String Username, String Password) throws ClassNotFoundException, IOException
 	{
 		
-		Admin admin=(Admin)ad.search(Username);
+		Admin admin=aData.getAdmin();
 		
 		 if(admin.getAdminId().equals(Username) && admin.getAdminPassword().equals(Password))
 			{
-				
-				 
+			 	
 				return admin;
 			}
 		 

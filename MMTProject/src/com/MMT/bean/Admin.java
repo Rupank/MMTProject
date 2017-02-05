@@ -1,12 +1,12 @@
 package com.MMT.bean;
 
 public class Admin {
-	private String adminId;
-	private String adminName;
+	private String adminId="admin";
+	private String adminName="admin";
 	private int adminPhoneNo;
 	private String adminEmailId;
 	private String adminAddress;
-	private String adminPassword;
+	private String adminPassword="admin";
 	public Admin(String adminId, String adminName, int adminPhoneNo, String adminEmailId, String adminAddress,
 			String adminPassword) {
 		super();

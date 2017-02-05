@@ -9,17 +9,17 @@ public class AdminDataMMT {
 	public void input(){
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Admin id : ");
-		admin.setAdminId(sc.next());
+		admin.setAdminId("admin");
 		System.out.println("Enter Admin name : ");
-		admin.setAdminName(sc.next());
+		admin.setAdminName("admin");
 		System.out.println("Enter Admin Phone no : ");
-		admin.setAdminPhoneNo(sc.nextInt());
+		admin.setAdminPhoneNo(1234);
 		System.out.println("Enter Admin EmailID : ");
-		admin.setAdminEmailId(sc.next());
+		admin.setAdminEmailId("admin@gmail.com");
 		System.out.println("Enter Admin Address : ");
-		admin.setAdminAddress(sc.next());
+		admin.setAdminAddress("A 5,Sec 22A");
 		System.out.println("Enter Admin Password : ");
-		admin.setAdminPassword(sc.next());
+		admin.setAdminPassword("admin");
 	
 		
 		

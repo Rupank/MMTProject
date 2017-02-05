@@ -306,9 +306,9 @@ public class MyMenuMMT{
 			}
 			
 			case 3:
-				System.out.println("Enter User Name:");
+				System.out.println("Enter Admin Name:");
 				String aname=sc.next();
-				System.out.println("Enter Password: ");
+				System.out.println("Enter Admin Password: ");
 				String apass=sc.next();
 				
 				try {
