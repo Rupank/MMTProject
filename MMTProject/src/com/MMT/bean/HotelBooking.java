@@ -3,8 +3,8 @@ package com.MMT.bean;
 import java.util.Date;
 
 public class HotelBooking {
-	private long hotelBookingId;
-	private int hotelId;
+	private String hotelBookingId;
+	private String hotelId;
 	private String userId;
 	public HotelBooking() {
 		super();
@@ -14,7 +14,7 @@ public class HotelBooking {
 	private Date hotelCheckInDate;
 	private Date hotelCheckOutDate;
 	private int stayDuration;
-	public HotelBooking(long hotelBookingId, int hotelId, String userId, int roomNo, Date hotelCheckInDate,
+	public HotelBooking(String hotelBookingId, String hotelId, String userId, int roomNo, Date hotelCheckInDate,
 			Date hotelCheckOutDate) {
 		super();
 		this.hotelBookingId = hotelBookingId;
@@ -24,16 +24,16 @@ public class HotelBooking {
 		this.hotelCheckInDate = hotelCheckInDate;
 		this.hotelCheckOutDate = hotelCheckOutDate;
 	}
-	public long getHotelBookingId() {
+	public String getHotelBookingId() {
 		return hotelBookingId;
 	}
-	public void setHotelBookingId(long hotelBookingId) {
+	public void setHotelBookingId(String hotelBookingId) {
 		this.hotelBookingId = hotelBookingId;
 	}
-	public int getHotelId() {
+	public String getHotelId() {
 		return hotelId;
 	}
-	public void setHotelId(int hotelId) {
+	public void setHotelId(String hotelId) {
 		this.hotelId = hotelId;
 	}
 	public String getUserId() {
