@@ -3,7 +3,7 @@ package com.MMT.bean;
 public class User {
 	private String userId;
 	private String userName;
-	private int userPhoneNo;
+	private long userPhoneNo;
 	private String userEmailId;
 	private String userAddress;
 	private String userPassword;
@@ -12,7 +12,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	private String userWalletId;
-	public User(String userId, String userName, int userPhoneNo, String userEmailId, String userAddress,
+	public User(String userId, String userName, long userPhoneNo, String userEmailId, String userAddress,
 			String userpassword, String userWalletId) {
 		super();
 		this.userId = userId;
@@ -41,7 +41,7 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getUserPhoneNo() {
+	public long getUserPhoneNo() {
 		return userPhoneNo;
 	}
 	public void setUserPhoneNo(int userPhoneNo) {
