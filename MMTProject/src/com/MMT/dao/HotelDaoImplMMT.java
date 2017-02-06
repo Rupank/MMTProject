@@ -1,17 +1,39 @@
 package com.MMT.dao;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import com.MMT.bean.Hotel;
 
-import com.MMT.helper.MyAppendObjectOutputStream;
-
 public class HotelDaoImplMMT implements HotelDaoMMT {
-	
+
+	@Override
+	public int insertHotel(Hotel h) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteHotel(String hotelId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateHotel(String hotelId, Hotel newhotel) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Hotel> displayHotel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hotel searchHotel(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
