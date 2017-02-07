@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import com.MMT.bean.Hotel;
 
 public interface HotelDaoMMT {
-	int insertHotel(Hotel h)  ;
+	int insertHotel(Hotel h) throws ClassNotFoundException, SQLException  ;
 	int deleteHotel(String hotelId);
 	int updateHotel(String hotelId, Hotel newhotel);
 	ArrayList<Hotel> displayHotel() ;
