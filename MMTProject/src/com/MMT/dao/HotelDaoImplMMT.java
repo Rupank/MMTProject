@@ -2,6 +2,7 @@ package com.MMT.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -57,26 +58,151 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 
 
 	@Override
-	public int deleteHotel(String hotelId) {
-		// TODO Auto-generated method stub
+	public int deleteHotel(String hotelId) throws ClassNotFoundException, SQLException {
+		Connection con=null;
+		//Registering Driver - Connect
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Connect to database
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
+		//Query
+		
+		Statement stmt3=con.createStatement();
+		 int rows3=stmt3.executeUpdate("delete from HotelRoom where hotelId ="+hotelId);
+	
+		 
+		Statement stmt=con.createStatement();
+		int rows=stmt.executeUpdate("delete from Hotel where hotelId ="+hotelId);
+		//Process Results
+		
+			
+		
+		if(rows>0&rows3>0)
+		{
+			return rows;
+		}
+		else return 0;
+	}
+
+	@Override
+	public int updateHotel(String hotelId, Hotel newhotel) throws ClassNotFoundException, SQLException {
+		Connection con=null;
+		//Registering Driver - Connect
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Connect to database
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
+		
+		String hotelId1=newhotel.getHotelId();
+		String hotelName=newhotel.getHotelName();
+		String hotelLocation=newhotel.getHotelLocation();
+		String hotelInfo=newhotel.getHotelInfo();
+		
+		//Query
+		Statement stmt=con.createStatement();
+		//System.out.println("b4 update");
+		//System.out.println(newhotel);
+		int rows=stmt.executeUpdate("update hotel set hotelId= '"+hotelId1+"' ,hotelName ='"+hotelName+"',hotelLocation='"+hotelLocation+"' ,hotelInfo ='"+hotelInfo+"' where hotelId="+hotelId);
+		 //rows=stmt.executeUpdate("insert into User (address,email,uid,name,pass,phoneNo values ("+address+","+email+","+uid+","+name+","+pass+","+phoneNo+")");
+		//Process Results
+		//System.out.println("a4 update");
+		if(rows>0)
+		{
+			con.close();
+			return rows;
+		}
+		else 
+		{	con.close();
 		return 0;
+		}
 	}
 
 	@Override
-	public int updateHotel(String hotelId, Hotel newhotel) {
-		// TODO Auto-generated method stub
-		return 0;
+	public ArrayList<Hotel> displayHotel() throws ClassNotFoundException, SQLException {
+		Hotel hotel =new Hotel();
+		Connection con=null;
+		//Registering Driver - Connect
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Connect to databases
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
+				"system", "sapient123");
+		//Query
+		ArrayList<Hotel> hotList=new ArrayList<Hotel>();
+		HotelRoom room=new HotelRoom(); 
+
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("select * from Hotel ");
+		//Process Results
+		while(rs.next()){
+			
+			hotel.setHotelId(rs.getString("hotelId"));
+			hotel.setHotelName(rs.getString("hotelName"));
+			hotel.setHotelLocation(rs.getString("hotelLocation"));
+			hotel.setHotelInfo(rs.getString("hotelInfo"));
+			Statement stmt2=con.createStatement();
+			ArrayList<HotelRoom> rl=new ArrayList<HotelRoom>();
+			ResultSet rs2=stmt.executeQuery("select * from  HotelRoom where hotelId= "+rs.getString("hotelId"));
+			while(rs2.next())
+			{
+				room.setHotelRoomNo(rs2.getInt("hotelRoomNo"));
+				room.setHotelRoomType(rs2.getString("hotelRoomType"));
+				room.setHotelRoomPrice(rs2.getDouble("hotelRoomPrice"));
+				room.setHotelRoomStatus(rs2.getString("hotelRoomStatus"));
+				
+				rl.add(room);
+			}
+			hotel.setHotelRoom(rl);;
+			
+			hotList.add(hotel);
+
+		}
+		
+		con.close();
+		return hotList;
 	}
 
 	@Override
-	public ArrayList<Hotel> displayHotel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Hotel searchHotel(String hotelId) throws ClassNotFoundException, SQLException {
+		Hotel hotel =new Hotel();
+		Connection con=null;
+		//Registering Driver - Connect
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Connect to database
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
+				"system", "sapient123");
+		//Query
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("select * from Hotel where hotelId="+hotelId);
+		//Process Results
+		while(rs.next()){
+//			int id=rs.getInt("eid");
+			
+			
+			hotel.setHotelId(rs.getString("hotelId"));
+			hotel.setHotelName(rs.getString("hotelName"));
+			hotel.setHotelLocation(rs.getString("hotelLocation"));
+			hotel.setHotelInfo(rs.getString("hotelInfo"));
+//			hotel.setuEmailId(rs.getString("uemail"));
+//			user.setuPassword(rs.getString("upassword"));
+//			user.setuPhoneNumber(rs.getInt("uphoneNumber"));
+			Statement stmt2=con.createStatement();
+			HotelRoom room=new HotelRoom();
+			ArrayList<HotelRoom> rl=new ArrayList<HotelRoom>();
+			ResultSet rs2=stmt.executeQuery("select * from Hoteloom where hotelId= "+rs.getString("hotelId"));
+			while(rs2.next())
+			{
+				room.setHotelRoomNo(rs2.getInt("hotelRoomNo"));
+				room.setHotelRoomType(rs2.getString("hotelRoomType"));
+				room.setHotelRoomPrice(rs2.getDouble("hotelRoomPrice"));
+				room.setHotelRoomStatus(rs2.getString("hotelRoomStatus"));
+				rl.add(room);
+			}
+			hotel.setHotelRoom(rl);;
+			
+			
+			return hotel;
 
-	@Override
-	public Hotel searchHotel(String hotelId) {
-		// TODO Auto-generated method stub
+		}
+		
+		
 		return null;
 	}
 
