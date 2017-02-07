@@ -15,12 +15,7 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 
 	@Override
 	public int insertHotel(Hotel h) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
-		
+		Connection con=DbConnection.dbConnection();
 		String hotelId=h.getHotelId();
 		String hotelName=h.getHotelName();
 		String hotelLocation=h.getHotelLocation();
@@ -59,13 +54,8 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 
 	@Override
 	public int deleteHotel(String hotelId) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
-		//Query
 		
+		Connection con=DbConnection.dbConnection();
 		Statement stmt3=con.createStatement();
 		 int rows3=stmt3.executeUpdate("delete from HotelRoom where hotelId ="+hotelId);
 	
@@ -85,12 +75,8 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 
 	@Override
 	public int updateHotel(String hotelId, Hotel newhotel) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
 		
+		Connection con=DbConnection.dbConnection();
 		String hotelId1=newhotel.getHotelId();
 		String hotelName=newhotel.getHotelName();
 		String hotelLocation=newhotel.getHotelLocation();
@@ -118,12 +104,7 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 	@Override
 	public ArrayList<Hotel> displayHotel() throws ClassNotFoundException, SQLException {
 		Hotel hotel =new Hotel();
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to databases
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
-				"system", "sapient123");
+		Connection con=DbConnection.dbConnection();
 		//Query
 		ArrayList<Hotel> hotList=new ArrayList<Hotel>();
 		HotelRoom room=new HotelRoom(); 
@@ -162,12 +143,7 @@ public class HotelDaoImplMMT implements HotelDaoMMT {
 	@Override
 	public Hotel searchHotel(String hotelId) throws ClassNotFoundException, SQLException {
 		Hotel hotel =new Hotel();
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
-				"system", "sapient123");
+		Connection con=DbConnection.dbConnection();
 		//Query
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery("select * from Hotel where hotelId="+hotelId);

@@ -15,12 +15,7 @@ public class FlightDaoImplMMT implements FlightDaoMMT {
 	
 	@Override
 	public int insertFlight(Flight f) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
-		
+		Connection con=DbConnection.dbConnection();		
 		String flightCompanyName=f.getFlightCompanyName();
 		String flightId=f.getFlightId();
 		String flightSource=f.getFlightSource();
@@ -48,12 +43,7 @@ public class FlightDaoImplMMT implements FlightDaoMMT {
 
 	@Override
 	public int deleteFlight(String flightId) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
-				"system", "sapient123");
+		Connection con=DbConnection.dbConnection();
 		//Query
 		Statement stmt=con.createStatement();
 		int rows=stmt.executeUpdate("delete from Flight where flightId ="+flightId);
@@ -68,12 +58,7 @@ public class FlightDaoImplMMT implements FlightDaoMMT {
 
 	@Override
 	public int updateFlight(String flightId, Flight newflight) throws ClassNotFoundException, SQLException {
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-	
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system", "sapient123");
+		Connection con=DbConnection.dbConnection();
 		
 		String flightCompanyName=newflight.getFlightCompanyName();
 		String flightId1=newflight.getFlightId();
@@ -103,12 +88,7 @@ public class FlightDaoImplMMT implements FlightDaoMMT {
 	@Override
 	public Flight searchFlight(String flightId) throws ClassNotFoundException, SQLException {
 		Flight f =new Flight();
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
-				"system", "sapient@123");
+		Connection con=DbConnection.dbConnection();
 		//Query
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery("select * from Flight where flightId="+flightId);
@@ -131,12 +111,7 @@ public class FlightDaoImplMMT implements FlightDaoMMT {
 	public ArrayList<Flight> displayFlight() throws ClassNotFoundException, SQLException {
 		ArrayList<Flight> F =new ArrayList<Flight>();
 		Flight f=new Flight();
-		Connection con=null;
-		//Registering Driver - Connect
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connect to database
-		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521",
-				"system", "sapient@123");
+		Connection con=DbConnection.dbConnection();
 		//Query
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery("select * from Flight");
