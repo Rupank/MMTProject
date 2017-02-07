@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import com.MMT.bean.Hotel;
 
 public interface HotelDaoMMT {
-	int insertHotel(Hotel h)  ;
-	int deleteHotel(String hotelId);
-	int updateHotel(String hotelId, Hotel newhotel);
-	ArrayList<Hotel> displayHotel() ;
-	Hotel searchHotel(String hotelId) ;
+	int insertHotel(Hotel h) throws ClassNotFoundException, SQLException  ;
+	int deleteHotel(String hotelId) throws ClassNotFoundException, SQLException;
+	int updateHotel(String hotelId, Hotel newhotel) throws ClassNotFoundException, SQLException;
+	ArrayList<Hotel> displayHotel() throws ClassNotFoundException, SQLException ;
+	Hotel searchHotel(String hotelId) throws ClassNotFoundException, SQLException ;
 //	ArrayList<HotelRoom> displayAvailableRooms(int hid)  throws IOException, ClassNotFoundException;
 }
