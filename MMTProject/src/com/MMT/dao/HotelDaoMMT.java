@@ -12,5 +12,5 @@ public interface HotelDaoMMT {
 	int updateHotel(String hotelId, Hotel newhotel) throws ClassNotFoundException, SQLException;
 	ArrayList<Hotel> displayHotel() throws ClassNotFoundException, SQLException ;
 	Hotel searchHotel(String hotelId) throws ClassNotFoundException, SQLException ;
-//	ArrayList<HotelRoom> displayAvailableRooms(int hid)  throws IOException, ClassNotFoundException;
+
 }
